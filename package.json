@@ -1,17 +1,17 @@
 {
-  "name": "@rustybrooks/eslint-prettier-config",
-  "version": "1.0.3",
+  "name": "@rustybrooks/eslint-config-prettier",
+  "version": "1.0.0",
   "description": "My own lint/prettier/etc config",
   "main": "index.js",
   "author": "Rusty Brooks <me@rustybrooks.com> (https://github.com/rustybrooks)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rustybrooks/eslint-prettier-config.git"
+    "url": "git+https://github.com/rustybrooks/eslint-config-prettier.git"
   },
   "keywords": [],
     "license": "MIT",
     "bugs": {
-      "url": "https://github.com/rustybrooks/eslint-prettier-config/issues"
+      "url": "https://github.com/rustybrooks/eslint-config-prettier/issues"
     },
   "dependencies": {
     "eslint": "latest",
