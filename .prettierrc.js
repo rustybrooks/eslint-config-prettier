@@ -1,4 +1,4 @@
-{
+const prettier = {
   "arrowParens": "avoid",
   "singleQuote": true,
   "semi": true,
@@ -6,3 +6,5 @@
   "printWidth": 140,
   "parser": "typescript"
 }
+
+module.exports = prettier

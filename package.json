@@ -1,6 +1,6 @@
 {
   "name": "@rustybrooks/eslint-config-prettier",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "My own lint/prettier/etc config",
   "main": "index.js",
   "author": "Rusty Brooks <me@rustybrooks.com> (https://github.com/rustybrooks)",
@@ -18,6 +18,7 @@
     "eslint-config-prettier": "latest",
     "eslint-plugin-import": "latest",
     "eslint-plugin-jest": "latest",
+    "eslint-plugin-typescript": "latest",
     "eslint-plugin-prettier": "latest",
     "eslint-plugin-react": "latest",
     "eslint-plugin-react-hooks": "latest",
