@@ -7,9 +7,7 @@ const eslint = {
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'airbnb-base',
-    'airbnb-typescript/base',
-    'react',
-    'react-hooks',
+    'airbnb-typescript/base'
   ],
   'parserOptions': {
     'project': './tsconfig.json'
