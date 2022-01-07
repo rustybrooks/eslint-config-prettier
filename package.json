@@ -32,5 +32,6 @@
     },
   "scripts": {
     "lint": "eslint ."
-  }
+  },
+  "tsconfig": "tsconfig.json"
 }
