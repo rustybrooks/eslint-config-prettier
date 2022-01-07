@@ -1,13 +1,15 @@
 const eslint = {
   'parser': '@typescript-eslint/parser',
-  'plugins': ['@typescript-eslint'],
+  'plugins': ['@typescript-eslint', "react", "react-hooks"],
   extends: [
     'plugin:jest/recommended',
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'airbnb-base',
-    'airbnb-typescript/base'
+    'airbnb-typescript/base',
+    'react',
+    'react-hooks',
   ],
   'parserOptions': {
     'project': './tsconfig.json'
