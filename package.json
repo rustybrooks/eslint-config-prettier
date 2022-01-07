@@ -1,12 +1,20 @@
 {
 	"name": "@rustybrooks/eslint-prettier-config",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "My own lint/prettier/etc config",
 	"main": "index.js",
 	"author": "Rusty Brooks <me@rustybrooks.com> (https://github.com/rustybrooks)",
+    "repository": {
+	  "type": "git",
+	  "url": "git+https://github.com/rustybrooks/eslint-prettier-config.git"
+	},
+    "keywords": [],
 	"license": "MIT",
-	"private": false,
+    "bugs": {
+      "url": "https://github.com/rustybrooks/eslint-prettier-config/issues"
+    },
 	"dependencies": {
+		"eslint": "latest",
 		"eslint-config-prettier": "latest",
 		"eslint-plugin-import": "latest",
 		"eslint-plugin-jest": "latest",
@@ -14,7 +22,6 @@
 		"eslint-plugin-react": "latest",
 		"eslint-plugin-react-hooks": "latest",
 		"@typescript-eslint/eslint-plugin": "latest",
-		"eslint": "latest",
 		"eslint-config-airbnb": "latest",
 		"eslint-config-airbnb-base": "latest",
 		"eslint-config-airbnb-typescript": "latest",
