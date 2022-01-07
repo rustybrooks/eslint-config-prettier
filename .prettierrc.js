@@ -4,7 +4,14 @@ const prettier = {
   "semi": true,
   "trailingComma": "all",
   "printWidth": 140,
-  "parser": "typescript"
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+        "options": {
+          "parser": "typescript"
+        }
+      },
+  ],
 }
 
 module.exports = prettier
