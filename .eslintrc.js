@@ -1,23 +1,23 @@
 const eslint = {
-  'parser': '@typescript-eslint/parser',
-  'plugins': ['@typescript-eslint', "react", "react-hooks"],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint', 'react', 'react-hooks'],
   extends: [
     'plugin:jest/recommended',
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'airbnb-base',
-    'airbnb-typescript/base'
+    'airbnb-typescript/base',
   ],
-  'parserOptions': {
-    'project': './tsconfig.json'
+  parserOptions: {
+    project: './tsconfig.json',
   },
-  'rules': {
+  rules: {
     'no-restricted-imports': [
       'error',
       {
-        'patterns': ['@mui/*/*/*', '!@mui/material/test-utils/*']
-      }
+        patterns: ['@mui/*/*/*', '!@mui/material/test-utils/*'],
+      },
     ],
     'class-methods-use-this': 'off',
     'no-restricted-syntax': 'off',
@@ -38,8 +38,8 @@ const eslint = {
     'max-classes-per-file': 'off',
     'no-await-in-loop': 0,
     'import/no-relative-packages': 'off',
-    '@typescript-eslint/naming-convention': 'off'
-  }
+    '@typescript-eslint/naming-convention': 'off',
+  },
 };
 
 module.exports = eslint;
