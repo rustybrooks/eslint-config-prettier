@@ -1,6 +1,6 @@
 {
   "name": "@rustybrooks/eslint-config-prettier",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "My own lint/prettier/etc config",
   "main": "index.js",
   "author": "Rusty Brooks <me@rustybrooks.com> (https://github.com/rustybrooks)",
