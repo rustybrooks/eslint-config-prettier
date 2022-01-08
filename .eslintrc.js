@@ -34,12 +34,14 @@ const eslint = {
     'function-paren-newline': 'off',
     // '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/indent': 'off',
-    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
-    'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
     'max-classes-per-file': 'off',
     'no-await-in-loop': 0,
     'import/no-relative-packages': 'off',
     '@typescript-eslint/naming-convention': 'off',
+
+    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+    'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
+    'react/require-default-props': 'off',
   },
 };
 
