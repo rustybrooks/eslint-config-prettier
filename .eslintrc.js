@@ -1,13 +1,16 @@
 const eslint = {
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'react', 'react-hooks'],
+  plugins: ['@typescript-eslint', 'react', 'react-hooks', 'prettier'],
   extends: [
+    'airbnb',
+    'airbnb-typescript',
     'plugin:jest/recommended',
+    'prettier',
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
-    'airbnb',
-    'airbnb-typescript',
+    'plugin:react/jsx-runtime',
+    'plugin:prettier/recommended',
   ],
   parserOptions: {
     project: './tsconfig.json',
@@ -26,7 +29,7 @@ const eslint = {
     'object-curly-newline': 'off',
     'arrow-parens': ['error', 'as-needed'],
     'no-console': 'off',
-    // 'max-len': 'off',
+    'max-len': ['error', { code: 140, ignoreComments: true }],
     'implicit-arrow-linebreak': 'off',
     'operator-linebreak': 'off',
     'import/prefer-default-export': 'off',
@@ -42,6 +45,8 @@ const eslint = {
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
     'react/require-default-props': 'off',
+    'react/jsx-one-expression-per-line': 'off',
+    'react/no-unescaped-entities': 'off',
   },
 };
 
