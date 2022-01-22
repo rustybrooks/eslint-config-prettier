@@ -35,7 +35,6 @@ const eslint = {
     'import/prefer-default-export': 'off',
     'import/no-default-export': 'error',
     'function-paren-newline': 'off',
-    // '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/indent': 'off',
     'max-classes-per-file': 'off',
     'no-await-in-loop': 0,

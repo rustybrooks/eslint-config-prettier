@@ -2,11 +2,14 @@
     "compilerOptions": {
         "module": "commonjs",
         "esModuleInterop": true,
+        "lib": [
+          "ES2018"
+        ],
         "target": "es6",
         "noImplicitAny": true,
         "moduleResolution": "node",
         "sourceMap": true,
-        "outDir": "dist",
+        "outDir": "../../dist",
         "baseUrl": ".",
         "paths": {
             "*": [
