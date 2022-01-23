@@ -12,8 +12,8 @@ const tsRulesCommon = {
   '@typescript-eslint/no-unused-vars': ['error', { vars: 'all', args: 'none', ignoreRestSiblings: false }],
   '@typescript-eslint/naming-convention': [
     'error',
-    { selector: 'variable', format: ['camelCase', 'UPPER_CASE'] },
-    { selector: 'variableLike', format: ['camelCase'] },
+    { selector: 'variable', format: ['camelCase', 'snake_case', 'UPPER_CASE'], leadingUnderscore: 'allow' },
+    { selector: 'variableLike', format: ['camelCase', 'snake_case'] },
   ],
   'import/no-default-export': 'error',
   'import/prefer-default-export': 'off',

@@ -5,6 +5,7 @@
         "lib": [
           "ES2018"
         ],
+        "declaration": true,
         "target": "es6",
         "noImplicitAny": true,
         "moduleResolution": "node",
