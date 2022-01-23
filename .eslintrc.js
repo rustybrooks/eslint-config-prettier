@@ -1,52 +1,117 @@
-const eslint = {
-  parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'react', 'react-hooks', 'prettier'],
-  extends: [
-    'airbnb',
-    'airbnb-typescript',
-    'plugin:jest/recommended',
-    'prettier',
-    'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react/jsx-runtime',
-    'plugin:prettier/recommended',
+// These are the base rules, that probably every typescript override will use
+const tsRulesCommon = {
+  '@typescript-eslint/indent': 'off',
+  '@typescript-eslint/lines-between-class-members': [
+    'error',
+    'always',
+    {
+      exceptAfterSingleLine: true,
+    },
   ],
-  parserOptions: {
-    project: './tsconfig.json',
-  },
-  rules: {
-    'no-restricted-imports': [
-      'error',
-      {
-        patterns: ['@mui/*/*/*', '!@mui/material/test-utils/*'],
-      },
-    ],
-    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
-    // 'class-methods-use-this': 'off',
-    'no-restricted-syntax': 'off',
-    'no-continue': 'off',
-    'object-curly-newline': 'off',
-    'arrow-parens': ['error', 'as-needed'],
-    'no-console': 'off',
-    'max-len': ['error', { code: 140, ignoreComments: true }],
-    'implicit-arrow-linebreak': 'off',
-    'operator-linebreak': 'off',
-    'import/prefer-default-export': 'off',
-    'import/no-default-export': 'error',
-    'function-paren-newline': 'off',
-    '@typescript-eslint/indent': 'off',
-    'max-classes-per-file': 'off',
-    'no-await-in-loop': 0,
-    'import/no-relative-packages': 'off',
-    '@typescript-eslint/naming-convention': 'off',
+  '@typescript-eslint/no-empty-function': 'off',
+  '@typescript-eslint/no-unused-vars': ['error', { vars: 'all', args: 'none', ignoreRestSiblings: false }],
+  '@typescript-eslint/naming-convention': [
+    'error',
+    { selector: 'variable', format: ['camelCase', 'UPPER_CASE'] },
+    { selector: 'variableLike', format: ['camelCase'] },
+  ],
+  'import/no-default-export': 'error',
+  'import/prefer-default-export': 'off',
+  'arrow-parens': 'off',
+  'class-methods-use-this': 'off',
+  'function-paren-newline': 'off',
+  'implicit-arrow-linebreak': 'off',
+  'key-spacing': [
+    'warn',
+    {
+      beforeColon: false,
+      afterColon: true,
+      mode: 'strict',
+    },
+  ],
+  'lines-between-class-members': 'off',
+  'max-len': 'off',
+  'no-await-in-loop': 'off',
+  'no-param-reassign': 'warn',
+  'no-restricted-syntax': [
+    'error',
+    // This is the no-restricted-syntax from airbnb, with the parts that personally I think are OK commented out
+    // I thought I'd leave these comments here to explain why this stanza exists.
+    // {
+    //   selector: 'ForInStatement',
+    //   message: 'for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.',
+    // },
+    // {
+    //   selector: 'ForOfStatement',
+    //   message: 'iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations.',
+    // },
+    {
+      selector: 'LabeledStatement',
+      message: 'Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.',
+    },
+    {
+      selector: 'WithStatement',
+      message: '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
+    },
+  ],
+  'object-curly-newline': 'off',
+  'operator-linebreak': 'off',
+};
 
-    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
-    'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
-    'react/require-default-props': 'off',
-    'react/jsx-one-expression-per-line': 'off',
-    'react/no-unescaped-entities': 'off',
+// These are rules intended to be used in (most?  all?) test cases.  They are only added to
+// override sections that apply to tests
+const tsRulesTests = {
+  'no-unused-expressions': 'off',
+  'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+  '@typescript-eslint/no-use-before-define': 'off',
+};
+
+function genOverride(fileSpec, extraRules = null, tsconfig = './tsconfig.json') {
+  const rules = {};
+  Object.assign(tsRulesCommon);
+  Object.assign(extraRules || {});
+  return {
+    files: fileSpec,
+    parser: '@typescript-eslint/parser',
+    plugins: ['@typescript-eslint', 'prettier'],
+    extends: [
+      'eslint:recommended',
+      'plugin:@typescript-eslint/eslint-recommended',
+      'plugin:@typescript-eslint/recommended',
+      'airbnb-base',
+      'airbnb-typescript/base',
+      'prettier',
+      'plugin:prettier/recommended',
+    ],
+    parserOptions: {
+      project: tsconfig,
+    },
+    rules: rules,
+  };
+}
+
+const eslint = {
+  plugins: ['prettier'],
+  extends: ['eslint:recommended', 'prettier'],
+  parserOptions: {
+    ecmaVersion: 6,
   },
+  env: {
+    node: true,
+    es6: true,
+  },
+  // is there anything else problematic we want to ignore?  Or we could strictly run eslint on just ./src ./test
+  ignorePatterns: ['dist/**'],
+  overrides: [
+    // source files
+    genOverride(['src/**/*.ts', 'src/**/*.tsx']),
+
+    // test files embedded in source
+    genOverride(['src/**/*.spec.ts'], tsRulesTests),
+
+    // test files in their own directory - typically need/want their own tsconfig.
+    genOverride(['test/e2e/*.ts'], tsRulesTests, './test/tsconfig.json'),
+  ],
 };
 
 module.exports = eslint;
