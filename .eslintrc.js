@@ -68,8 +68,8 @@ const tsRulesTests = {
 
 function genOverride(fileSpec, extraRules = null, tsconfig = './tsconfig.json') {
   const rules = {};
-  Object.assign(tsRulesCommon);
-  Object.assign(extraRules || {});
+  Object.assign(rules, tsRulesCommon);
+  Object.assign(rules, extraRules || {});
   return {
     files: fileSpec,
     parser: '@typescript-eslint/parser',
