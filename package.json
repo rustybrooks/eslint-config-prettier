@@ -1,6 +1,6 @@
 {
   "name": "@rustybrooks/eslint-config-prettier",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "My own lint/prettier/etc config",
   "main": "index.js",
   "author": "Rusty Brooks <me@rustybrooks.com> (https://github.com/rustybrooks)",
@@ -14,22 +14,21 @@
       "url": "https://github.com/rustybrooks/eslint-config-prettier/issues"
     },
   "dependencies": {
-    "eslint": "latest",
-    "eslint-config-prettier": "latest",
-    "eslint-config-airbnb": "latest",
-    "eslint-config-airbnb-base": "latest",
-    "eslint-config-airbnb-typescript": "latest",
-    "eslint-plugin-airbnb-base": "latest",
-    "eslint-plugin-import": "latest",
-    "eslint-plugin-jest": "latest",
-    "eslint-plugin-prettier": "latest",
-    "eslint-plugin-react": "latest",
-    "eslint-plugin-react-hooks": "latest",
-    "@typescript-eslint/eslint-plugin": "latest",
-    "jest": "latest",
-    "nodemon": "latest",
+    "@typescript-eslint/eslint-plugin": "^5.9.1",
+    "@typescript-eslint/parser": "^5.9.1",
+    "eslint": "^8.6.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^16.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-airbnb-base": "^0.0.1-security",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jest": "^25.3.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.5.1",
-    "jest-config": "latest"
+    "standard-version": "^9.3.1"
     },
   "scripts": {
     "lint": "eslint ."
