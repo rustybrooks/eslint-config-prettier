@@ -9,10 +9,10 @@
     "url": "git+https://github.com/rustybrooks/eslint-config-prettier.git"
   },
   "keywords": [],
-    "license": "MIT",
-    "bugs": {
-      "url": "https://github.com/rustybrooks/eslint-config-prettier/issues"
-    },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rustybrooks/eslint-config-prettier/issues"
+  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.9.1",
     "@typescript-eslint/parser": "^5.9.1",
@@ -29,9 +29,12 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.5.1",
     "standard-version": "^9.3.1"
-    },
+  },
   "scripts": {
     "lint": "eslint ."
   },
-  "tsconfig": "tsconfig.json"
+  "tsconfig": "tsconfig.json",
+  "devDependencies": {
+    "eslint-config-airbnb-typescript": "^16.1.0"
+  }
 }

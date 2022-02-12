@@ -14,10 +14,10 @@ const tsRulesCommon = {
     'error',
     {
       selector: ['variable', 'parameter', 'parameterProperty'],
-      format: ['camelCase', 'snake_case', 'UPPER_CASE'],
+      format: ['camelCase', 'snake_case', 'UPPER_CASE', 'PascalCase'],
       leadingUnderscore: 'allow',
     },
-    { selector: 'variableLike', format: ['camelCase', 'snake_case'] },
+    { selector: 'variableLike', format: ['camelCase', 'snake_case', 'PascalCase'] },
   ],
   'import/no-default-export': 'error',
   'import/prefer-default-export': 'off',
@@ -77,26 +77,27 @@ function genOverride(fileSpec, extraRules = null, tsconfig = './tsconfig.json') 
   return {
     files: fileSpec,
     parser: '@typescript-eslint/parser',
-    plugins: ['@typescript-eslint', 'prettier'],
+    plugins: ['@typescript-eslint', 'prettier', 'react', 'react-hooks'],
     extends: [
       'eslint:recommended',
       'plugin:@typescript-eslint/eslint-recommended',
       'plugin:@typescript-eslint/recommended',
       'airbnb-base',
-      'airbnb-typescript/base',
+      'airbnb-typescript',
+      'plugin:react/jsx-runtime',
       'prettier',
       'plugin:prettier/recommended',
     ],
     parserOptions: {
       project: tsconfig,
     },
-    rules: rules,
+    rules,
   };
 }
 
 const eslint = {
-  plugins: ['prettier'],
-  extends: ['eslint:recommended', 'prettier'],
+  plugins: ['prettier', 'react', 'react-hooks'],
+  extends: ['eslint:recommended', 'airbnb-base', 'plugin:react/jsx-runtime', 'prettier', 'plugin:prettier/recommended'],
   parserOptions: {
     ecmaVersion: 6,
   },
