@@ -109,7 +109,7 @@ const eslint = {
   ignorePatterns: ['dist/**'],
   overrides: [
     // source files
-    genOverride(['src/**/*.ts', 'src/**/*.tsx']),
+    genOverride(['src/**/*.ts', 'src/**/*.tsx', 'bin/**/*.ts']),
 
     // test files embedded in source
     genOverride(['src/**/*.spec.ts'], tsRulesTests),
